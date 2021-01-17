@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login } from './components/pages';
+import { LoginPage } from './pages/login/login';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,7 +12,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path='/login' exact component={Login}></Route>
+        <Route path='/login' exact component={LoginPage}></Route>
+        <Redirect from='/' exact to='login' />
       </Switch>
     </Router>
   );
