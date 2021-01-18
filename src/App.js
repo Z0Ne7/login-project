@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
+  // Link,
   Redirect,
 } from 'react-router-dom';
 
