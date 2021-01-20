@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 export const LeftSidebar = () => {
@@ -23,6 +25,7 @@ export const LeftSidebar = () => {
                 activeClassName={activeClass}
                 className='flex mt-6 items-center rounded-lg hover:text-gray-900 hover:bg-gray-200  p-2 cursor-pointer '
               >
+                <FontAwesomeIcon icon={faMinus} />
                 <p className='text-base  ml-3'>Project Type</p>
               </NavLink>
               <NavLink
@@ -30,6 +33,7 @@ export const LeftSidebar = () => {
                 activeClassName={activeClass}
                 className='flex items-center mt-3 p-2 rounded-lg hover:text-gray-900 hover:bg-gray-200'
               >
+                <FontAwesomeIcon icon={faMinus} />
                 <p className=' text-base ml-3'>Project Status</p>
               </NavLink>
               <NavLink
@@ -37,6 +41,7 @@ export const LeftSidebar = () => {
                 activeClassName={activeClass}
                 className='flex items-center mt-3 p-2 rounded-lg hover:text-gray-900 hover:bg-gray-200'
               >
+                <FontAwesomeIcon icon={faMinus} />
                 <p className='  text-base ml-3'> Tech Stack</p>
               </NavLink>
               <NavLink
@@ -44,6 +49,7 @@ export const LeftSidebar = () => {
                 activeClassName={activeClass}
                 className='flex items-center mt-3 p-2 rounded-lg hover:text-gray-900 hover:bg-gray-200'
               >
+                <FontAwesomeIcon icon={faMinus} />
                 <p className='  text-base ml-3'>Customers</p>
               </NavLink>
             </div>
