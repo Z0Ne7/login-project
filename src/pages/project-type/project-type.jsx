@@ -6,7 +6,7 @@ export const ProjectType = () => {
   return (
     <div className=''>
       <div>
-        <NavbarHeader />
+        {/* <NavbarHeader /> */}
       </div>
     </div>
   );
