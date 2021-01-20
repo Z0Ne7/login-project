@@ -7,7 +7,8 @@ import {
   REACT_APP_PROJECT_TYPE,
 } from '../../../constants/api-endpoint';
 import { useForm } from 'react-hook-form';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 export const FormLogin = () => {
   const [isLoading, setLoading] = useState(false);
   const { register, handleSubmit } = useForm();
@@ -17,7 +18,7 @@ export const FormLogin = () => {
     if (localToken) {
       history.push(REACT_APP_PROJECT_TYPE);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const onHandleSubmit = async (inputData) => {
     setLoading(true);
@@ -41,8 +42,8 @@ export const FormLogin = () => {
         {isLoading ? (
           <div className='flex items-center justify-center w-full h-full fixed top-0 left-0 bg-white opacity-75 z-50'>
             <span className='text-indigo-800 text-5xl'>
-              Logging in...
-              {/* <i className='fas fa-circle-notch fa-spin fa-5x'></i> */}
+              Logging in
+              <FontAwesomeIcon className='ml-2' icon={faSpinner} spin />
             </span>
           </div>
         ) : (

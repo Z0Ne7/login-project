@@ -8,9 +8,14 @@ export const ButtonAdding = ({ route }) => {
     history.push(route);
   };
   return (
-    <button onClick={() => redirect(route)}>
-      <p>Add</p>
-      <FontAwesomeIcon icon={faPlus} />
+    <button
+      className='border border-solid border-indigo-300 shadow rounded w-20 h-8 text-gray-700 hover:text-white hover:bg-green-600 mt-3'
+      onClick={() => redirect(route)}
+    >
+      <p>
+        Add
+        <FontAwesomeIcon className='ml-2' icon={faPlus} />
+      </p>
     </button>
   );
 };

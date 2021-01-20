@@ -1,12 +1,11 @@
 import { ButtonAdding } from '../../components/button-adding/button-adding';
-import { ButtonLogout } from '../../components/button-logout/button-logout';
-import { NavbarHeader } from '../../components/navbar-header/navbar-header';
-
+import { TableTitle } from '../../components/table-title/table-title';
 export const ProjectType = () => {
   return (
-    <div className=''>
+    <div className='flex w-11/12'>
       <div>
-        {/* <NavbarHeader /> */}
+        <TableTitle title='Project Type:' />
+        <ButtonAdding className='' />
       </div>
     </div>
   );
