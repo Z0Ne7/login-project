@@ -9,7 +9,7 @@ export const ButtonAdding = ({ route }) => {
   };
   return (
     <button
-      className='border border-solid border-indigo-300 shadow rounded w-20 h-8 text-gray-700 hover:text-white hover:bg-green-600 mt-3'
+      className='border border-solid shadow rounded w-20 h-8 text-white bg-green-600 mt-3'
       onClick={() => redirect(route)}
     >
       <p>
