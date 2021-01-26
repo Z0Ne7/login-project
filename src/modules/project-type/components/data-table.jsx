@@ -1,6 +1,8 @@
 import { RowTableProjectType } from './data-row-table';
+import { useSelector } from 'react-redux';
 
 export const TableProjectType = () => {
+  const { projectType } = useSelector(state => state);
   return (
     <table className='flex flex-col shadow justify-center bg-white w-11/12 rounded'>
       <thead>
@@ -12,7 +14,9 @@ export const TableProjectType = () => {
           <th className='w-2/12'>Status</th>
         </tr>
       </thead>
-      <RowTableProjectType />
+      {projectType.map((data, i) => (
+        <RowTableProjectType key={i} number={i + 1} {...data} />
+      ))}
     </table>
   );
 };

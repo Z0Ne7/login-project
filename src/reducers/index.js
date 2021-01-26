@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import typeReducer from './typeReducer';
+import projectTypeReducer from './projectTypeReducer';
 export const rootReducer = combineReducers({
-  type: typeReducer,
+  projectType: projectTypeReducer,
 });

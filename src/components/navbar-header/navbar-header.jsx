@@ -1,4 +1,8 @@
-import { faCaretDown, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCaretDown,
+  faPowerOff,
+  faUserCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -16,16 +20,10 @@ export const NavbarHeader = () => {
   return (
     <nav className='flex justify-between h-20 w-11/12'>
       <p className='flex items-center ml-3'></p>
-      <div
-        className='flex w-40 items-center justify-around relative'
-      >
+      <div className='flex w-40 items-center justify-around relative'>
         <div className='relative'>
-          <div>
-            <img
-              className='w-11'
-              src='https://icons.iconarchive.com/icons/designcontest/ecommerce-business/96/admin-icon.png'
-              alt='avatar'
-            />
+          <div className='text-indigo-700 text-3xl'>
+            <FontAwesomeIcon icon={faUserCircle} />
           </div>
         </div>
         <div>
@@ -37,13 +35,14 @@ export const NavbarHeader = () => {
         {toggleMenu ? (
           <div className='flex absolute right-0 -top-16 rounded'>
             <div className='my-32'>
-              <div className='absolute right-0 w-32 rounded shadow-md z-20'>
-                <p
+              <div className='flex justify-center h-9 absolute right-0 w-28 rounded shadow-md z-20 hover:bg-indigo-50 hover:opacity-80'>
+                <button
                   onClick={onLogout}
-                  className='flex items-center justify-center m-2 cursor-pointer'
+                  className='text-red-600 font-semibold opacity-80'
                 >
-                  Logout <FontAwesomeIcon icon={faPowerOff} className='ml-1' />
-                </p>
+                  <FontAwesomeIcon icon={faPowerOff} className='mr-1' />
+                  Logout
+                </button>
               </div>
             </div>
           </div>

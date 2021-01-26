@@ -1,10 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinus } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import {
+  faChartPie,
+  faChartBar,
+  faDatabase,
+  faUserAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 export const LeftSidebar = () => {
   const activeClass =
-    'hover:bg-indigo-700 hover:text-pink-100 bg-indigo-700 text-white rounded';
+    'font-semibold hover:bg-indigo-700 hover:text-pink-100 bg-indigo-700 text-white rounded';
   return (
     <div className='w-2/12 mt-4 relative'>
       <div className='flex justify-center'>
@@ -23,9 +27,9 @@ export const LeftSidebar = () => {
               <NavLink
                 to='/project-type'
                 activeClassName={activeClass}
-                className='flex mt-6 items-center rounded-lg hover:text-gray-900 hover:bg-gray-200  p-2 cursor-pointer '
+                className='flex mt-6 items-center rounded-lg hover:text-gray-900 hover:bg-gray-200 p-2 cursor-pointer '
               >
-                <FontAwesomeIcon icon={faMinus} />
+                <FontAwesomeIcon icon={faChartPie} />
                 <p className='text-base  ml-3'>Project Type</p>
               </NavLink>
               <NavLink
@@ -33,7 +37,7 @@ export const LeftSidebar = () => {
                 activeClassName={activeClass}
                 className='flex items-center mt-3 p-2 rounded-lg hover:text-gray-900 hover:bg-gray-200'
               >
-                <FontAwesomeIcon icon={faMinus} />
+                <FontAwesomeIcon icon={faChartBar} />
                 <p className=' text-base ml-3'>Project Status</p>
               </NavLink>
               <NavLink
@@ -41,7 +45,7 @@ export const LeftSidebar = () => {
                 activeClassName={activeClass}
                 className='flex items-center mt-3 p-2 rounded-lg hover:text-gray-900 hover:bg-gray-200'
               >
-                <FontAwesomeIcon icon={faMinus} />
+                <FontAwesomeIcon icon={faDatabase} />
                 <p className='  text-base ml-3'> Tech Stack</p>
               </NavLink>
               <NavLink
@@ -49,7 +53,7 @@ export const LeftSidebar = () => {
                 activeClassName={activeClass}
                 className='flex items-center mt-3 p-2 rounded-lg hover:text-gray-900 hover:bg-gray-200'
               >
-                <FontAwesomeIcon icon={faMinus} />
+                <FontAwesomeIcon icon={faUserAlt} />
                 <p className='  text-base ml-3'>Customers</p>
               </NavLink>
             </div>
