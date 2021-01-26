@@ -58,7 +58,6 @@ export const LeftSidebar = () => {
               </NavLink>
             </div>
           </ul>
-          <button></button>
         </div>
       </div>
     </div>

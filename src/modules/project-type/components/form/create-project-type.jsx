@@ -1,4 +1,7 @@
 import { TableTitle } from '../../../../components/table-title/table-title';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export const FormCreateProjectType = () => {
   return (
     <div className='w-1/2'>
@@ -6,8 +9,11 @@ export const FormCreateProjectType = () => {
         <div className='sm:ml-5'>
           <TableTitle title='Add Project Type:' />
         </div>
-        <div className='leading-loose lg:mr-4 lg:w-full w-6/12'>
-          <form className=' m-4 p-10 sm:m-0 sm:mt-6 sm:mb-5 bg-white rounded shadow-xl'>
+        <div className='leading-loose'>
+          <form className='m-4 p-10 bg-white rounded shadow-xl'>
+            <Link to='/project-type'>
+              <FontAwesomeIcon icon={faTimes} className='text-red-600 float-right text-xl -mt-7 -mr-6' />
+            </Link>
             <div>
               <label className='block text-sm text-gray-00 mb-2' htmlFor='name'>
                 Name
@@ -74,12 +80,10 @@ export const FormCreateProjectType = () => {
                 </select>
               </div>
             </div>
-            <div className='flex items-center justify-center mt-6'>
-              <div className='m-3'>
-                <button className='font-bold rounded bg-indigo-600 text-white hover:opacity-90 shadow-md py-2 px-6 flex items-center'>
-                  <div className='flex h-5 items-center'>Add</div>
-                </button>
-              </div>
+            <div className='flex flex-col items-center justify-center mt-6'>
+              <button className='font-bold rounded bg-indigo-600 text-white hover:opacity-90 shadow-md py-2 px-6 flex items-center'>
+                <div className='flex h-5 items-center'>Add</div>
+              </button>
             </div>
           </form>
         </div>

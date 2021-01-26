@@ -33,7 +33,7 @@ function App() {
         <Route
           render={({ location }) => {
             return (
-              <div className='flex flex-row min-h-screen bg-gray-500'>
+              <div className='flex flex-row min-h-screen'>
                 <LeftSidebar />
                 <div className='flex flex-col w-10/12'>
                   <NavbarHeader />
