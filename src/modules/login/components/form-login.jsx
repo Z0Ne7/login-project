@@ -28,7 +28,7 @@ export const FormLogin = () => {
       const response = await Axios.post(loginApi, { email, password });
       const { token } = response.data.data;
       if (token) {
-        localStorage.setItem('token', token);
+        localStorage.setItem('token', JSON.stringify(token));
         setLoading(false);
         history.push(REACT_APP_PROJECT_TYPE);
       }

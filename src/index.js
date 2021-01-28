@@ -4,7 +4,7 @@ import './assets/main.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { configureStore } from './store';
+import { configureStore } from './app/store';
 
 const store = configureStore();
 ReactDOM.render(
