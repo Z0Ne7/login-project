@@ -1,11 +1,13 @@
-import { ACTION } from '../constants/action-type';
+import { ACTION } from '../constants/project-type.constants';
 
-const projectTypeData = JSON.parse(localStorage.getItem('projectType'));
-const initialState = projectTypeData ? projectTypeData : [];
+const initialState = {
+  data: [],
+};
 
 const projectTypeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ACTION.LOAD_DATA_TABLE:
+    case ACTION.GET_DATA_PROJECT_TYPE:
+      state.data = action.payload;
       return state;
     case ACTION.ADD_PROJECT_TYPE:
       state.push(action.payload);

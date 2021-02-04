@@ -18,9 +18,8 @@ export const FormLogin = () => {
     if (localToken) {
       history.push(REACT_APP_PROJECT_TYPE);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const onHandleSubmit = async (inputData) => {
+  const onHandleSubmit = async inputData => {
     setLoading(true);
     try {
       const loginApi = REACT_APP_BASE_URL + REACT_APP_LOGIN_AUTH;
@@ -57,9 +56,7 @@ export const FormLogin = () => {
             <div className='mt-12'>
               <form onSubmit={handleSubmit(onHandleSubmit)}>
                 <div>
-                  <div className='text-sm font-bold text-gray-700 tracking-wide'>
-                    Email Address
-                  </div>
+                  <div className='text-sm font-bold text-gray-700 tracking-wide'>Email Address</div>
                   <input
                     name='email'
                     ref={register({ required: true, maxLength: 20 })}
@@ -70,9 +67,7 @@ export const FormLogin = () => {
                 </div>
                 <div className='mt-8'>
                   <div className='flex justify-between items-center'>
-                    <div className='text-sm font-bold text-gray-700 tracking-wide'>
-                      Password
-                    </div>
+                    <div className='text-sm font-bold text-gray-700 tracking-wide'>Password</div>
                   </div>
                   <input
                     name='password'
@@ -94,11 +89,8 @@ export const FormLogin = () => {
                 </div>
               </form>
               <div className='mt-12 text-sm font-display font-semibold text-gray-700 text-center'>
-                Don't have an account ?
-                <a
-                  href='/#'
-                  className='ml-1 cursor-pointer text-indigo-600 hover:text-indigo-800'
-                >
+                Don&apos;t have an account ?
+                <a href='/#' className='ml-1 cursor-pointer text-indigo-600 hover:text-indigo-800'>
                   Sign up
                 </a>
               </div>

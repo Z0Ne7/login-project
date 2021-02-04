@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import * as action from '../../../../actions/project-type-action';
+import * as action from '../../actions/project-type.actions';
 import { TableTitle } from '../../../../components/table-title/table-title';
 
 export const FormCreateProjectType = () => {
@@ -18,7 +18,7 @@ export const FormCreateProjectType = () => {
   const generateID = () => {
     return `${
       randomString() + randomString()
-    }-${randomString()}${randomString()}-${randomString()}${randomString()}-${randomString()}${randomString()}`;
+    }-${randomString()}${randomString()}-${randomString()}`;
   };
   const onSubmit = dataInputProjectType => {
     dispatch(action.addProjectType(dataInputProjectType));
@@ -31,10 +31,7 @@ export const FormCreateProjectType = () => {
           <TableTitle title='Add Project Type:' />
         </div>
         <div className='leading-loose'>
-          <form
-            className='m-4 p-10 bg-white rounded shadow-xl'
-            onSubmit={handleSubmit(onSubmit)}
-          >
+          <form className='m-4 p-10 bg-white rounded shadow-xl' onSubmit={handleSubmit(onSubmit)}>
             <Link to='/project-type'>
               <FontAwesomeIcon
                 icon={faTimes}
@@ -54,12 +51,10 @@ export const FormCreateProjectType = () => {
                 required
                 placeholder='Name'
               />
+              <input type='hidden' ref={register} name='id' value={generateID()} />
             </div>
             <div className='mt-4'>
-              <label
-                className='block text-sm text-gray-600 mb-2'
-                htmlFor='description'
-              >
+              <label className='block text-sm text-gray-600 mb-2' htmlFor='description'>
                 Description
               </label>
               <textarea

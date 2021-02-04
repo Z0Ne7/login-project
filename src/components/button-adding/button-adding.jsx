@@ -4,7 +4,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export const ButtonAdding = ({ route }) => {
   const history = useHistory();
-  const redirect = (route) => {
+  const redirect = route => {
     history.push(route);
   };
   return (

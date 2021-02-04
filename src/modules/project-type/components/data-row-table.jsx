@@ -1,19 +1,23 @@
-export const RowTableProjectType = ({
-  number,
-  name,
-  description,
-  priority,
-  status,
-}) => {
+import { useHistory } from 'react-router-dom';
+
+export const RowTableProjectType = props => {
+  const history = useHistory();
+  const { rowData } = props;
+  const handleViewDetail = () => {
+    history.push(props.link);
+  };
   return (
     <tbody>
-      <tr className='flex w-full justify-around pt-4 pb-4 cursor-pointer text-center hover:bg-indigo-50'>
-        <td className='w-1/12'>{number}</td>
-        <td className='w-2/12'>{name}</td>
-        <td className='w-4/12'>{description}</td>
-        <td className='w-2/12'>{priority}</td>
-        <td className='w-2/12'>
-          {status === 'active' ? (
+      <tr
+        className='flex w-full justify-around pt-4 pb-4 cursor-pointer text-left hover:bg-indigo-50'
+        onClick={handleViewDetail}
+      >
+        <td className='w-1/12 text-center'>{props.number}</td>
+        <td className='w-2/12'>{rowData.name}</td>
+        <td className='w-4/12'>{rowData.description}</td>
+        <td className='w-2/12 text-center'>{rowData.priority}</td>
+        <td className='w-2/12 text-center'>
+          {rowData.status === 'active' ? (
             <span className='bg-green-100 border-2 border-green-600 rounded-lg text-green-700 font-bold p-2'>
               ACTIVE
             </span>

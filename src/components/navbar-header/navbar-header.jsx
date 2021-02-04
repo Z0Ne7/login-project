@@ -1,8 +1,4 @@
-import {
-  faCaretDown,
-  faPowerOff,
-  faUserCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faPowerOff, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -36,10 +32,7 @@ export const NavbarHeader = () => {
           <div className='flex absolute right-0 -top-16 rounded'>
             <div className='my-32'>
               <div className='flex justify-center h-9 absolute right-0 w-28 rounded shadow-md z-20 hover:bg-indigo-50 hover:opacity-80'>
-                <button
-                  onClick={onLogout}
-                  className='text-red-600 font-semibold opacity-80'
-                >
+                <button onClick={onLogout} className='text-red-600 font-semibold opacity-80'>
                   <FontAwesomeIcon icon={faPowerOff} className='mr-1' />
                   Logout
                 </button>
