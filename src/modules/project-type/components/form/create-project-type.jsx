@@ -21,7 +21,6 @@ export const FormCreateProjectType = () => {
   const history = useHistory();
   const onSubmit = dataInputProjectType => {
     const { id } = dataInputProjectType;
-    apiPost(localItem, dataInputProjectType); //Set data to localStorage
     //Check if state exist
     if (projectType.data.length < 1) {
       const localData = apiGet(localItem);
@@ -32,6 +31,7 @@ export const FormCreateProjectType = () => {
     } else {
       dispatch(action.addProjectType(dataInputProjectType)); //Add new data to state
     }
+    apiPost(localItem, dataInputProjectType); //Set data to localStorage
     setIsDisabled(true);
     setTimeout(() => {
       history.push('/project-type/' + id);

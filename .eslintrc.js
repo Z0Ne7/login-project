@@ -20,6 +20,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'react/prop-types': 0,
     'no-unused-vars': 1,
+    'no-console': 1,
     'prettier/prettier': 1,
   },
 };

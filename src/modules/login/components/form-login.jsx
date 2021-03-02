@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
-import { useHistory } from 'react-router-dom';
-import {
-  REACT_APP_BASE_URL,
-  REACT_APP_LOGIN_AUTH,
-  REACT_APP_PROJECT_TYPE,
-} from '../../../constants/api-endpoint';
-import { useForm } from 'react-hook-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { requestLogin } from '../../../services/login.services';
+
 export const FormLogin = () => {
   const [isLoading, setLoading] = useState(false);
   const { register, handleSubmit } = useForm();
@@ -16,23 +12,15 @@ export const FormLogin = () => {
   useEffect(() => {
     const localToken = localStorage.getItem('token');
     if (localToken) {
-      history.push(REACT_APP_PROJECT_TYPE);
+      history.push('/project-type');
     }
   }, []);
-  const onHandleSubmit = async inputData => {
+  const onHandleSubmit = async loginData => {
     setLoading(true);
-    try {
-      const loginApi = REACT_APP_BASE_URL + REACT_APP_LOGIN_AUTH;
-      const { email, password } = inputData;
-      const response = await Axios.post(loginApi, { email, password });
-      const { token } = response.data.data;
-      if (token) {
-        localStorage.setItem('token', JSON.stringify(token));
-        setLoading(false);
-        history.push(REACT_APP_PROJECT_TYPE);
-      }
-    } catch (error) {
-      console.log(error);
+    const response = await requestLogin(loginData);
+    if (response) {
+      setLoading(false);
+      history.push('/project-type');
     }
   };
   return (
