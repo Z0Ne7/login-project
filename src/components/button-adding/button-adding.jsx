@@ -12,7 +12,7 @@ export const ButtonAdding = ({ route }) => {
       className='border border-solid shadow rounded w-20 h-8 text-white bg-green-600 mt-3'
       onClick={() => redirect(route)}
     >
-      <p>
+      <p className='font-bold'>
         Add
         <FontAwesomeIcon className='ml-2' icon={faPlus} />
       </p>

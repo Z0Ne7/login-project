@@ -1,36 +1,50 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import * as action from '../../actions/project-type.actions';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { TableTitle } from '../../../../components/table-title/table-title';
+import { generateID } from '../../../../utils/generate-id';
+import * as action from '../../actions/project-type.actions';
+import { apiGet, apiPost } from '../../../../services/project-type.services';
 
 export const FormCreateProjectType = () => {
   const { register, handleSubmit } = useForm();
+  const [isDisabled, setIsDisabled] = useState(false);
+  const delay = 1000;
+  const localItem = 'projectType';
   const dispatch = useDispatch();
+  const { projectType } = useSelector(state => state);
   const history = useHistory();
-  const randomString = () => {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-  };
-  const generateID = () => {
-    return `${
-      randomString() + randomString()
-    }-${randomString()}${randomString()}-${randomString()}`;
-  };
   const onSubmit = dataInputProjectType => {
-    dispatch(action.addProjectType(dataInputProjectType));
-    history.push('/project-type');
+    const { id } = dataInputProjectType;
+    apiPost(localItem, dataInputProjectType); //Set data to localStorage
+    //Check if state exist
+    if (projectType.data.length < 1) {
+      const localData = apiGet(localItem);
+      if (localData) {
+        dispatch(action.getDataProjectTypes(localData)); //Get all local data to state
+        dispatch(action.addProjectType(dataInputProjectType)); //Add new data to state
+      }
+    } else {
+      dispatch(action.addProjectType(dataInputProjectType)); //Add new data to state
+    }
+    setIsDisabled(true);
+    setTimeout(() => {
+      history.push('/project-type/' + id);
+    }, delay);
   };
   return (
     <div className='w-1/2'>
       <div className='mt-10'>
-        <div className='sm:ml-5'>
+        <div className='flex justify-center'>
           <TableTitle title='Add Project Type:' />
         </div>
         <div className='leading-loose'>
+          <ToastContainer autoClose={delay} />
           <form className='m-4 p-10 bg-white rounded shadow-xl' onSubmit={handleSubmit(onSubmit)}>
             <Link to='/project-type'>
               <FontAwesomeIcon
@@ -50,6 +64,7 @@ export const FormCreateProjectType = () => {
                 type='text'
                 required
                 placeholder='Name'
+                disabled={isDisabled}
               />
               <input type='hidden' ref={register} name='id' value={generateID()} />
             </div>
@@ -65,6 +80,7 @@ export const FormCreateProjectType = () => {
                 type='text'
                 required
                 placeholder='Description'
+                disabled={isDisabled}
               />
             </div>
             <div className='inline-block mt-2 w-1/2 pr-1'>
@@ -78,6 +94,7 @@ export const FormCreateProjectType = () => {
                   id='priority'
                   name='priority'
                   required
+                  disabled={isDisabled}
                 >
                   <option value='1'>1</option>
                   <option value='2'>2</option>
@@ -98,6 +115,7 @@ export const FormCreateProjectType = () => {
                   id='status'
                   name='status'
                   required
+                  disabled={isDisabled}
                 >
                   <option className='mt-10' value='active'>
                     Active
@@ -107,9 +125,18 @@ export const FormCreateProjectType = () => {
               </div>
             </div>
             <div className='flex flex-col items-center justify-center mt-6'>
-              <button className='font-bold rounded bg-indigo-600 text-white hover:opacity-90 shadow-md py-2 px-6 flex items-center'>
-                <div className='flex h-5 items-center'>Add</div>
-              </button>
+              {isDisabled ? (
+                <button
+                  type='button'
+                  className='font-bold rounded bg-indigo-600 opacity-70 text-white shadow-md py-2 px-6 flex items-center'
+                >
+                  <div className='flex h-5 items-center'>Add</div>
+                </button>
+              ) : (
+                <button className='font-bold rounded bg-indigo-600 text-white hover:opacity-90 shadow-md py-2 px-6 flex items-center'>
+                  <div className='flex h-5 items-center'>Add</div>
+                </button>
+              )}
             </div>
           </form>
         </div>

@@ -8,7 +8,7 @@ export const ProjectType = () => {
         <TableTitle title='Project Type:' />
       </div>
       <ButtonAdding route='/project-type/create' />
-      <div className='mt-2'>
+      <div className='mt-2 flex justify-center'>
         <TableProjectType />
       </div>
     </>

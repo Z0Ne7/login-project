@@ -16,7 +16,7 @@ export const LeftSidebar = () => {
     <div className='w-2/12 mt-4 relative'>
       <div className='flex justify-center'>
         <div className='flex justify-center items-center w-10/12'>
-          <a className='text-4xl text-indigo-700 font-bold' href='/'>
+          <a className='text-3xl text-indigo-700 font-bold' href='/'>
             VMO Project
           </a>
         </div>
