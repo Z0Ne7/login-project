@@ -14,13 +14,9 @@ export const FormDetailProjectType = ({ setUpdate }) => {
   const params = useParams();
   const [loading, setLoading] = useState(true);
   const [dataProjectType, setDataProjectType] = useState([]);
-  // const { projectType } = useSelector(state => state);
   const localProjectType = 'projectType';
   useEffect(() => {
     const localData = apiGet(localProjectType);
-    // if (localData) {
-    //   dispatch(action.getDataProjectTypes(localData));
-    // }
     const result = localData.data.find(data => data.id === params.id);
     setDataProjectType(result);
     setLoading(false);
